@@ -1,6 +1,10 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { DashboardContainerComponent } from './dashboard-container.component';
+import { NavbarComponent } from '../navbar/navbar.component';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { RouterTestingModule } from '@angular/router/testing';
+
 
 describe('DashboardContainerComponent', () => {
   let component: DashboardContainerComponent;
@@ -8,7 +12,14 @@ describe('DashboardContainerComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DashboardContainerComponent ]
+      imports: [
+        RouterTestingModule,
+        HttpClientTestingModule
+      ],
+      declarations: [ 
+        DashboardContainerComponent,
+        NavbarComponent 
+      ]
     })
     .compileComponents();
   }));
@@ -19,7 +30,10 @@ describe('DashboardContainerComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  it('Navbar component should be created', () => {
+    const fixture = TestBed.createComponent(NavbarComponent);
+    const app = fixture.debugElement.componentInstance;
+    expect(app).toBeTruthy();
   });
+  
 });
