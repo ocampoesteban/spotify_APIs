@@ -21,7 +21,8 @@ export class EntityContainerComponent implements OnInit {
    */
   ngOnInit() {
     if(window.location.href.includes("access_token")){
-      this.token= window.location.hash.split('=')[1];
+      this.token= window.location.hash.split('=')[1].split('&')[0];
+      console.log(this.token)
       this.TokenServices.setToken(this.token);
       this.router.navigate(["/"]); 
     }
