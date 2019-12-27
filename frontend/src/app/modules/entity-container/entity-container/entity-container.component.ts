@@ -2,12 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { TokenServices } from 'src/app/core/services/token.service';
 
+
 @Component({
-  selector: 'app-container',
-  templateUrl: './dashboard-container.component.html',
-  styleUrls: ['./dashboard-container.component.scss']
+  selector: 'entity-container',
+  templateUrl: './entity-container.component.html',
+  styleUrls: ['./entity-container.component.scss']
 })
-export class DashboardContainerComponent implements OnInit {
+export class EntityContainerComponent implements OnInit {
 
   constructor(public router: Router, public TokenServices: TokenServices) { }
   

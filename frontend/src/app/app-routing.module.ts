@@ -1,19 +1,16 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { DashboardContainerComponent } from './modules/dashboard-container/dashboard-container.component';
 import { LoginComponent } from './modules/login/login.component';
-
 
 const routes: Routes = [
   {
     path:'login',
     component: LoginComponent
   },
-  {
-    path:'',
-    component: DashboardContainerComponent
+  { 
+    path: '',
+    loadChildren: () => import('./modules/entity-container/entityContainer.module').then(m => m.EntityContainerModule)
   }
-
 ];
 
 @NgModule({
