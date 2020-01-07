@@ -11,6 +11,7 @@ export class NavbarComponent implements OnInit {
 
   constructor(public navbarService:NavbarService) { }
   user: User;
+  isMenuCollapsed: boolean= false;
 
   ngOnInit() {
     this.navbarService.getUserData().subscribe(
@@ -19,10 +20,11 @@ export class NavbarComponent implements OnInit {
   }
 
   toggle() {
-    // Sidebar toggle behavior
-    //$('#sidebarCollapse').on('click', function() {
-    //  $('#sidebar, #content').toggleClass('active');
-    //});
+    console.log('before isMenuCollapsed',this.isMenuCollapsed);
+
+   this.isMenuCollapsed = !this.isMenuCollapsed;
+   console.log(' after isMenuCollapsed',this.isMenuCollapsed);
+
   }
 
 }

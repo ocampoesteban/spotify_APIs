@@ -1,7 +1,14 @@
 
 .card {
     float: left;
-    width: 16rem;
+    
+    @media (min-width: 768px) { 
+        width: 14rem; 
+    }
+
+    @media (min-width: 992px) { 
+        width: 13rem; 
+    }
 
     .card-title, .card-text {
         white-space: nowrap;

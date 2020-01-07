@@ -17,7 +17,7 @@ export class EntityContainerComponent implements OnInit {
   /**
    * Get access token from URL
    * Save token
-   * Redirect user to init screen
+   * Redirect user to home page
    */
   ngOnInit() {
     if(window.location.href.includes("access_token")){
