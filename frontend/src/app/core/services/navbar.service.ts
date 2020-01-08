@@ -12,7 +12,7 @@ import { TokenServices } from './token.service';
 export class NavbarService {
   constructor(public http: HttpClient, public tokenService: TokenServices) { }
 
-  private API_URL: string = 'https://api.spotify.com/v1/';
+  API_URL: string = 'https://api.spotify.com/v1/';
 
   private handleError(error: any) {
     console.log(error);
@@ -24,6 +24,7 @@ export class NavbarService {
 
     return this.http.get<User>(`${this.API_URL}${SUFIX_URL}`).pipe(
       map((data:User) => {
+        console.log(data);
         return data;
       }), catchError(this.handleError)
     );

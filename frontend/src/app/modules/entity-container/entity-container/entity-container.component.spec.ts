@@ -1,6 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { EntityContainerComponent } from './entity-container.component';
+import { NavbarComponent } from '../../navbar/navbar.component';
+import { RouterTestingModule } from '@angular/router/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('EntityContainerComponent', () => {
   let component: EntityContainerComponent;
@@ -8,7 +11,11 @@ describe('EntityContainerComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ EntityContainerComponent ]
+      imports: [ RouterTestingModule, HttpClientTestingModule ],
+      declarations: [ 
+        EntityContainerComponent, 
+        NavbarComponent 
+      ]
     })
     .compileComponents();
   }));
