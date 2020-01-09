@@ -1,10 +1,10 @@
 <!-- Vertical navbar -->
 <div class="vertical-nav bg-white" id="sidebar" [ngClass]="{'displayed':isMenuCollapsed}">
     <div class="py-4 px-3 bg-light navbar-header">
-      <div class="media d-flex align-items-center"><img src={{user?.images[0].url}} alt="..." width="65" class="mr-3 rounded-circle img-thumbnail shadow-sm">
+      <div class="media d-flex align-items-center"><img src={{user?.profileImage}} alt="..." width="65" class="mr-3 rounded-circle img-thumbnail shadow-sm">
         <div class="media-body">
-          <h4 class="m-0">{{user?.display_name}}</h4>
-          <p class="font-weight-light text-muted mb-0">{{user?.product}}</p>
+          <h4 class="m-0">{{user?.name}}</h4>
+          <p class="font-weight-light text-muted mb-0">{{user?.accountType}}</p>
         </div>
         <div class="collapse-button" (click)="toggle()" [ngClass]="{'displayed':isMenuCollapsed}">
           <div class="bar1"></div>

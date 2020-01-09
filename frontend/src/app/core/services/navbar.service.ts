@@ -4,28 +4,36 @@ import { Observable } from 'rxjs/internal/Observable';
 import { HttpClient } from '@angular/common/http';
 import { User } from '../models/user';
 import { map,catchError } from 'rxjs/internal/operators';
-import { TokenServices } from './token.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class NavbarService {
-  constructor(public http: HttpClient, public tokenService: TokenServices) { }
+  constructor(
+    private http: HttpClient, 
+  ) { }
 
-  private API_URL: string = 'https://api.spotify.com/v1/';
+  API_URL: string = 'https://api.spotify.com/v1/';
 
   private handleError(error: any) {
     console.log(error);
     return throwError(error);
   }
 
+  /**
+   * Get User list
+   * @param
+   * @returns
+   */
   getUserData(): Observable<User> {
-    const SUFIX_URL: string = 'me/'
+    const SUFIX_URL: string = 'me/';
 
-    return this.http.get<User>(`${this.API_URL}${SUFIX_URL}`).pipe(
-      map((data:User) => {
-        return data;
-      }), catchError(this.handleError)
-    );
+    return this.http
+      .get(`${this.API_URL}${SUFIX_URL}`)
+      .pipe(
+        map((data: any) => {
+          return new User(data);
+        }), catchError(this.handleError)
+      );
   }
 }
