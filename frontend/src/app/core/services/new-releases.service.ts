@@ -28,6 +28,7 @@ export class NewReleasesService {
     
     return this.http.get<Album>(`${this.API_URL}${SUFIX_URL}`).pipe(
       map((data:Album) => {
+        console.log(data)
         return data;
       }), catchError(this.handleError)
     );
