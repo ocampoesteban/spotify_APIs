@@ -11,7 +11,7 @@ export class LoginService {
 
   constructor(@Inject(DOCUMENT) private document: Document) { }
 
-  private scopes = 'user-read-private user-read-email';
+  private scopes = 'user-read-private user-read-email user-read-recently-played';
   private clientID = '0d03c998d1054f088573eb85a2bd7059';
   private redirectUri = 'http://localhost:3000';
   
