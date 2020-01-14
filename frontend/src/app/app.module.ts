@@ -15,6 +15,7 @@ import { AuthInterceptor } from './core/interceptor/auth.interceptor';
   imports: [
     BrowserModule,
     HttpClientModule,
+    //SlickCarouselModule,
     AppRoutingModule
   ],
   providers: [ // HTTP Interceptor

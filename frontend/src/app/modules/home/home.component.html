@@ -2,10 +2,12 @@
     <h3 class="sub-title">
         New Releases
     </h3>
-
     <div class="cards-container">
-        <div class="card m-2" *ngFor="let album of newReleases">
-            <img src={{album?.images[0].url}} class="card-img-top" alt="...">
+        <ngx-slick-carousel class="carousel" 
+        #slickModal="slick-carousel" 
+        [config]="slideConfig">
+        <div class="card m-2" ngxSlickItem *ngFor="let album of newReleases">
+            <img src={{album?.images[0].url}} class="card-img-top" alt="..."  width="100%">
             <div class="card-body">
                 <h5 class="card-title" 
                     data-toggle="tooltip" 
@@ -19,5 +21,38 @@
                 <p>
             </div>
         </div>
+    </ngx-slick-carousel>
     </div>
 </div>
+<br><br><br>
+<div class="new-releases">
+    <h3 class="sub-title">
+        Last displayed
+    </h3>
+    <div class="cards-container">
+        <ngx-slick-carousel class="carousel" 
+        #slickModal="slick-carousel" 
+        [config]="slideConfig">
+        <div class="card m-2" ngxSlickItem *ngFor="let album of newReleases">
+            <img src={{album?.images[0].url}} class="card-img-top" alt="..."  width="100%">
+            <div class="card-body">
+                <h5 class="card-title" 
+                    data-toggle="tooltip" 
+                    data-placement="right" 
+                    title={{album?.artists[0].name}}>{{album?.artists[0].name}}
+                </h5>
+                <p class="card-text"
+                    data-toggle="tooltip" 
+                    data-placement="right" 
+                    title={{album?.name}}>{{album?.name}}
+                <p>
+            </div>
+        </div>
+    </ngx-slick-carousel>
+    </div>
+</div>
+
+
+
+
+

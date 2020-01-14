@@ -6,17 +6,20 @@ import { EntityContainerComponent } from './entity-container/entity-container.co
 import { NavbarComponent } from '../navbar/navbar.component';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { SlickCarouselModule } from 'ngx-slick-carousel';
 
 @NgModule({
   declarations: [
     HomeComponent,
     SearchComponent,
     NavbarComponent,
+    //MultipleItemsCarouselComponent,
     EntityContainerComponent
   ],
   imports: [
     CommonModule, // ngIf, ngFor..
     FormsModule,  // ngModel
+    SlickCarouselModule,
     EntityContainerRoutingModule
   ],
   providers: [ ],
