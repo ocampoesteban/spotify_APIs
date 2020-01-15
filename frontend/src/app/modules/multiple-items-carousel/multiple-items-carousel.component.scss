@@ -1,0 +1,9 @@
+.card {
+    float: left;
+
+    .card-title, .card-text {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}

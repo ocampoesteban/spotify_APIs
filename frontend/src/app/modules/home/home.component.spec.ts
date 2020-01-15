@@ -11,7 +11,7 @@ describe('HomeComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports:[HttpClientTestingModule],
+      imports:[HttpClientTestingModule,SlickCarouselModule],
       declarations: [ HomeComponent ]
     });
 
