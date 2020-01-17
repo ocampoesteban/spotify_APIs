@@ -18,18 +18,6 @@ export class MultipleItemsCarouselComponent implements OnInit {
     "slidesToScroll": 1,
     "arrows": false,
     "infinite": true,
-    "responsive": [{
-        "breakpoint": 426,
-        "settings": { 
-          "slidesToShow": 1
-        }
-      },
-      {
-        "breakpoint": 770,
-        "settings": {
-          "slidesToShow": 3
-        }
-      }
-    ]
+    "variableWidth": true,
   };
 }
