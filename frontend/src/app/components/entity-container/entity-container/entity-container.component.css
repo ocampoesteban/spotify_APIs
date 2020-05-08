@@ -1,0 +1,6 @@
+.entity-container {
+  height: 100vh;
+  overflow: auto;
+  padding-top: 5vh;
+  padding-bottom: 5vh;
+}

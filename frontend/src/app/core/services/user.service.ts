@@ -8,7 +8,7 @@ import { map,catchError } from 'rxjs/internal/operators';
 @Injectable({
   providedIn: 'root'
 })
-export class NavbarService {
+export class UserService {
   constructor(
     private http: HttpClient, 
   ) { }
@@ -31,7 +31,7 @@ export class NavbarService {
     return this.http
       .get(`${this.API_URL}${SUFIX_URL}`)
       .pipe(
-        map((data: any) => {
+        map((data: User) => {
           return new User(data);
         }), catchError(this.handleError)
       );

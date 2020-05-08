@@ -26,7 +26,8 @@ export class NewReleasesService {
   public getNewRealeases(): Observable<Album> {
     const SUFIX_URL: string = 'browse/new-releases';
     
-    return this.http.get<Album>(`${this.API_URL}${SUFIX_URL}`).pipe(
+    return this.http.get<Album>(`${this.API_URL}${SUFIX_URL}`)
+    .pipe(
       map((data:Album) => {
         console.log(data)
         return data;

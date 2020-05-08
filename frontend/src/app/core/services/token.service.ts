@@ -3,26 +3,28 @@ import { Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root'
 })
-export class TokenServices {
+export class TokenService {
 
   constructor() { }
-  
-  private token: string;
 
-  setToken(token: string): void {
-    this.token=token;
-    sessionStorage.setItem("key", this.token);
+  set setToken(token: string) {
+    if (token) {
+      sessionStorage.setItem("key", token);
+    }
   }
 
-  getToken(): string {
-    const key = sessionStorage.getItem("key");
-    if(key) {
-      return key;
+  get getToken(): string {
+    const token = sessionStorage.getItem("key");
+    if(token) {
+      return token;
     }
   }
 
   deleteToken(): void {
-    sessionStorage.removeItem('key');
+    const token = sessionStorage.getItem("key");
+    if (token) {
+      sessionStorage.removeItem('key');
+    }
   }
 
 }

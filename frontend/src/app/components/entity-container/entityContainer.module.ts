@@ -7,7 +7,7 @@ import { NavbarComponent } from '../navbar/navbar.component';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
-import { MultipleItemsCarouselComponent } from '../multiple-items-carousel/multiple-items-carousel.component';
+import { MultipleItemsCarouselComponent } from '../../shared/multiple-items-carousel/multiple-items-carousel.component';
 
 @NgModule({
   declarations: [

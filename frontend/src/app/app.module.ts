@@ -4,8 +4,9 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LoginComponent } from './modules/login/login.component';
 import { AuthInterceptor } from './core/interceptor/auth.interceptor';
+import { LoginComponent } from './components/authorization/login/login.component';
+import { AuthGuardService } from './core/guards/auth-guard.service';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { AuthInterceptor } from './core/interceptor/auth.interceptor';
     AppRoutingModule
   ],
   providers: [ // HTTP Interceptor
+    AuthGuardService,
     { 
       provide: HTTP_INTERCEPTORS, 
       useClass: AuthInterceptor, 
