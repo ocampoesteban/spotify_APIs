@@ -8,11 +8,11 @@ import { LoginService } from 'src/app/core/services/login.service';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private loginService: LoginService){ }
+  constructor(private loginService: LoginService) { }
 
-  ngOnInit(){}
+  ngOnInit() { }
 
-  goToLogin(){
+  goToLogin() {
     this.loginService.goToLogin();
   }
 }

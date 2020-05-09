@@ -7,7 +7,7 @@ import { SearchComponent } from '../search/search.component';
 
 const routes: Routes = [
   {
-    path:'',
+    path: '',
     component: EntityContainerComponent,
     children: [
       { path: '', redirectTo: 'home', pathMatch: 'full' },

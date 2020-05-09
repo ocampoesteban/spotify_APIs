@@ -1,0 +1,12 @@
+.sub-title {
+  margin: 0.5rem !important;
+}
+.card {
+  float: left;
+}
+.card .card-title,
+.card .card-text {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

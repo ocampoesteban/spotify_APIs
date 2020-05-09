@@ -6,8 +6,8 @@ import { EntityContainerComponent } from './entity-container/entity-container.co
 import { NavbarComponent } from '../navbar/navbar.component';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { MultipleItemsCarouselComponent } from '../../shared/multiple-items-carousel/multiple-items-carousel.component';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -20,7 +20,7 @@ import { MultipleItemsCarouselComponent } from '../../shared/multiple-items-caro
   imports: [
     CommonModule, // ngIf, ngFor..
     FormsModule,  // ngModel
-    SlickCarouselModule, // Carousel
+    SharedModule,
     EntityContainerRoutingModule
   ],
   providers: [ ],

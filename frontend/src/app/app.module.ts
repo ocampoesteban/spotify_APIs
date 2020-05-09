@@ -16,15 +16,14 @@ import { AuthGuardService } from './core/guards/auth-guard.service';
   imports: [
     BrowserModule,
     HttpClientModule,
-    //SlickCarouselModule,
     AppRoutingModule
   ],
   providers: [ // HTTP Interceptor
     AuthGuardService,
-    { 
-      provide: HTTP_INTERCEPTORS, 
-      useClass: AuthInterceptor, 
-      multi: true 
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
     },
   ],
   bootstrap: [AppComponent]

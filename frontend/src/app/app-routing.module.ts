@@ -5,13 +5,13 @@ import { AuthGuardService } from './core/guards/auth-guard.service';
 
 const routes: Routes = [
   {
-    path:'login',
+    path: 'login',
     component: LoginComponent
   },
-  { 
+  {
     path: '',
     loadChildren: () => import('./components/entity-container/entityContainer.module').then(m => m.EntityContainerModule),
-    canActivate: [AuthGuardService] 
+    //canActivate: [AuthGuardService] 
   },
 ];
 

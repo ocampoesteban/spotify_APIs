@@ -35,6 +35,6 @@ export class LoginService {
   */
   public isAuthenticated(): boolean {
     const token = this.tokenService.getToken;
-    return token === '';
+    return typeof token === 'undefined' ;
   }
 }
