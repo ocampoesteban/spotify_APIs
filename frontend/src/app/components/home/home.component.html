@@ -1,6 +1,7 @@
 <section class="new-releases">
     <multiple-items-carousel 
         [iMultipleItemsCarousel]="multipleItemsCarousel"
+        (artistId)="goToArtistPage($event)"
     >
     </multiple-items-carousel>
 </section>
@@ -8,6 +9,7 @@
 <section class="last-displayed">
     <multiple-items-carousel 
         [iMultipleItemsCarousel]="multipleItemsCarousel"
+        (artistId)="goToArtistPage($event)"
     >
     </multiple-items-carousel>
 </section >

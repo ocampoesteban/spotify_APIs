@@ -78,7 +78,8 @@
           },
           "configurations": {
             "production": {
-              "browserTarget": "spotifyAPPIs:build:production"
+              "browserTarget": "spotifyAPPIs:build:production",
+              "proxyConfig": "proxy.config.json"
             }
           }
         },

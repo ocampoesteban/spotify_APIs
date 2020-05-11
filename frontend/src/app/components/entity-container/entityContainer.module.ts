@@ -8,9 +8,11 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { MultipleItemsCarouselComponent } from '../../shared/multiple-items-carousel/multiple-items-carousel.component';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { RockerComponent } from '../rocker/rocker.component';
 
 @NgModule({
   declarations: [
+    RockerComponent,
     HomeComponent,
     SearchComponent,
     NavbarComponent,

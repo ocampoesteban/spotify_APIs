@@ -4,16 +4,15 @@ import { Observable } from 'rxjs/internal/Observable';
 import { HttpClient } from '@angular/common/http';
 import { User } from '../models/user';
 import { map,catchError } from 'rxjs/internal/operators';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
   constructor(
-    private http: HttpClient, 
+    private http: HttpClient
   ) { }
-
-  API_URL: string = 'https://api.spotify.com/v1/';
 
   private handleError(error: any) {
     console.log(error);
@@ -26,10 +25,10 @@ export class UserService {
    * @returns
    */
   getUserData(): Observable<User> {
-    const SUFIX_URL: string = 'me/';
+    const SUFIX_URL = '/v1/me/';
 
     return this.http
-      .get(`${this.API_URL}${SUFIX_URL}`)
+      .get(`${SUFIX_URL}`)
       .pipe(
         map((data: User) => {
           return new User(data);

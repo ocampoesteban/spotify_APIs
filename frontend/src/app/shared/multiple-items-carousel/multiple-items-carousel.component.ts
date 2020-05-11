@@ -1,5 +1,5 @@
-import { Component, OnInit, Input, SimpleChanges, OnChanges } from '@angular/core';
-import { IMultipleItemsCarousel } from 'src/app/core/models/IMultipleItemsCarousel';
+import { Component, OnInit, Input, SimpleChanges, OnChanges, Output, EventEmitter } from '@angular/core';
+import { IMultipleItemsCarousel } from 'src/app/core/models/iMultipleItemsCarousel';
 
 @Component({
   selector: 'multiple-items-carousel',
@@ -13,18 +13,24 @@ export class MultipleItemsCarouselComponent implements OnInit, OnChanges {
   @Input() iMultipleItemsCarousel: IMultipleItemsCarousel;
   _iMultipleItemsCarousel: IMultipleItemsCarousel;
 
+  @Output() artistId = new EventEmitter<string>();
+
   ngOnInit() { }
 
-  ngOnChanges(changes: SimpleChanges): void {
+  ngOnChanges(changes: SimpleChanges) {
     console.log(changes);
     this.multipleItemsCarousel = this.iMultipleItemsCarousel;
   }
 
-  set multipleItemsCarousel(p) {
-    this._iMultipleItemsCarousel = p;
+  getArtistId(artistId: string) {
+    this.artistId.emit(artistId);
   }
 
-  get multipleItemsCarousel() {
+  set multipleItemsCarousel(iMultipleItemsCarousel: IMultipleItemsCarousel) {
+    this._iMultipleItemsCarousel = iMultipleItemsCarousel;
+  }
+
+  get multipleItemsCarousel(): IMultipleItemsCarousel {
     return this._iMultipleItemsCarousel;
   }
 }

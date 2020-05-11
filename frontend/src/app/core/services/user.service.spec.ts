@@ -2,8 +2,6 @@ import { TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule , HttpTestingController } from '@angular/common/http/testing';
 
 import { UserService } from './user.service';
-import { User } from '../models/user';
-import { of } from 'rxjs/internal/observable/of';
 
 describe('UserService', () => {
   let userService: UserService;

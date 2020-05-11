@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { EntityContainerComponent } from './entity-container/entity-container.component';
 import { HomeComponent } from '../home/home.component';
 import { SearchComponent } from '../search/search.component';
+import { RockerComponent } from 'src/app/components/rocker/rocker.component';
 
 
 const routes: Routes = [
@@ -12,7 +13,8 @@ const routes: Routes = [
     children: [
       { path: '', redirectTo: 'home', pathMatch: 'full' },
       { path: 'home', component: HomeComponent },
-      { path: 'search', component: SearchComponent }
+      { path: 'search', component: SearchComponent },
+      { path: 'artist/:artistId', component: RockerComponent }
     ]
   }
 
