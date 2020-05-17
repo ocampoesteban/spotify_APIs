@@ -3,8 +3,8 @@ import { throwError, Observable } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 
-import { environment } from '../../../environments/environment';
 import { IRocker } from '../models/iRocker';
+import { Album } from '../models/album';
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +12,7 @@ import { IRocker } from '../models/iRocker';
 export class ArtistService {
 
   constructor(private http: HttpClient) { }
+  URL = 'https://api.spotify.com/v1/artists/';
 
   private handleError(error: any) {
     return throwError(error);
@@ -22,11 +23,45 @@ export class ArtistService {
    * @param
    * @returns
    */
-  public artistById(artistId: string): Observable<IRocker> {
-    const SUFIX_URL = `/v1/artists/${artistId}`;
-    return this.http.get<IRocker>(`${environment.apiUrl}${SUFIX_URL}`)
+  getArtistById(artistId: string): Observable<IRocker> {
+    const SUFIX_URL = `${this.URL}${artistId}`;
+    return this.http.get<IRocker>(`${SUFIX_URL}`)
     .pipe(
       map((data: IRocker) => {
+        console.log(data);
+        return data;
+      }),
+      catchError(this.handleError)
+    );
+  }
+
+  /**
+   * Get album by artistId
+   * @param artistId
+   * @returns Album[]>
+   */
+  getAbumByArtistId(artistId: string): Observable<Album[]> {
+    const SUFIX_URL = `${this.URL}${artistId}/albums`;
+    return this.http.get<Album[]>(`${SUFIX_URL}`)
+    .pipe(
+      map((data: Album[]) => {
+        console.log(data);
+        return data;
+      }),
+      catchError(this.handleError)
+    );
+  }
+
+  /**
+   * Get album by artistId
+   * @param artistId
+   * @returns Album[]>
+   */
+  getArtistRelatatedToArtistId(artistId: string): Observable<IRocker[]> {
+    const SUFIX_URL = `${this.URL}${artistId}/related-artists`;
+    return this.http.get<IRocker[]>(`${SUFIX_URL}`)
+    .pipe(
+      map((data: IRocker[]) => {
         console.log(data);
         return data;
       }),

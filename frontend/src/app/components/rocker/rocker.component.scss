@@ -1,0 +1,35 @@
+@import '../../../assets/main';
+
+.header {
+    .background-img {
+        height: auto;
+        width: 100%;
+
+        @include breakpoints(sm,null) {
+            width: 50%;
+        }
+    }
+
+    .content {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .btn-container {
+        flex-direction: column;
+        margin-top: auto;
+
+        .btn {
+            line-height: 10vw;
+            width: 48.5%;
+        }
+
+        .listen {
+            margin-right: map-get($spaces , 'sm');
+        }
+
+        .follow {
+            margin-left: map-get($spaces , 'sm');
+        }
+    }
+}

@@ -1,0 +1,33 @@
+// breakpoints
+$break-sm: 540px;
+$break-md: 720px;
+$break-lg: 960px;
+$break-xl: 1140px;
+
+@mixin breakpoints($point, $custom) {
+   @if $custom { // custom
+      @media only screen and (min-width: $custom) {
+         @content;
+      }
+   }
+   @else if $point == xl { // desktop extra large
+      @media only screen and (min-width: $break-xl) {
+         @content;
+      }
+   } 
+   @else if $point == lg { // laptops/desktop large
+      @media only screen and (min-width: $break-lg) {
+         @content;
+      }
+   } 
+   @else if $point == md { // laptop medium
+      @media only screen and (min-width: $break-md) {
+         @content;
+      }
+   }
+   @else if $point == sm { // tablet
+      @media only screen and (min-width: $break-sm) {
+         @content;
+      }
+   }
+ }

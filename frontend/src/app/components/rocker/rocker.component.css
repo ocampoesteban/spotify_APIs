@@ -1,0 +1,16 @@
+.header .background-img {
+  height: auto;
+  width: 100%;
+}
+.header .content {
+  display: flex;
+  flex-direction: column;
+}
+.header .btn-container {
+  flex-direction: column;
+  margin-top: auto;
+}
+.header .btn-container .btn {
+  line-height: 10vw;
+  width: 48.5%;
+}

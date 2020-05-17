@@ -2,9 +2,11 @@ import { Image } from './image';
 
 export interface IRocker {
     external_urls: string;
-    followers: number;
+    followers: any;
     genres: string[];
     href: string;
     id: string;
-    image: Image [];
+    images: Image [];
+    name: string;
+    popularity: number;
 }

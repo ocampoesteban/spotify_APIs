@@ -22,7 +22,7 @@ export class NewReleasesService {
    * @returns
    */
   public getNewRealeases(): Observable<Album> {
-    const SUFIX_URL = '/v1/browse/new-releases';
+    const SUFIX_URL = 'https://api.spotify.com/v1/browse/new-releases';
 
     return this.http.get<Album>(`${SUFIX_URL}`)
     .pipe(

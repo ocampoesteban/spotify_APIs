@@ -12,7 +12,7 @@
         <div class="card m-2" 
             ngxSlickItem 
             *ngFor="let album of multipleItemsCarousel._data"
-            (click)="getArtistId(album.id)"
+            (click)="getArtistById(album.artists[0].id)"
         >
             <img src={{album?.images[0].url}} class="card-img-top" alt="{{album?.artists[0].name}}"  width="100%">
             <div class="card-body">

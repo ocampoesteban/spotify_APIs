@@ -4,9 +4,11 @@ import { map } from 'rxjs/internal/operators/map';
 // Services
 import { ArtistService } from 'src/app/core/services/artist.service';
 
-//Models
+// Models
 import { IRocker } from '../../core/models/iRocker';
-
+import { Album } from 'src/app/core/models/album';
+import { forkJoin } from 'rxjs';
+import { finalize } from 'rxjs/internal/operators/finalize';
 
 @Component({
   selector: 'app-rocker',
@@ -19,7 +21,11 @@ export class RockerComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private artistService: ArtistService
   ) { }
-  _rocker: IRocker = null;
+  _rocker: IRocker;
+  _album: Album[];
+  _artistRelated: IRocker[];
+  isPageContentReady = false;
+  imageURl: string;
 
   ngOnInit() {
     const artistId = this.activatedRoute.snapshot.params.artistId;
@@ -27,26 +33,47 @@ export class RockerComponent implements OnInit {
       ...this._rocker,
       id: artistId
     };
-    this.getRocker();
+    this.loadData();
   }
 
-  set rocker(artist: IRocker) {
-    this._rocker = artist;
-  }
-
-  get rocker(): IRocker {
-    return this._rocker;
-  }
-
-  getRocker() {
-    this.artistService
-    .artistById(this.rocker.id)
+  loadData() {
+    forkJoin([
+      this.getRocker$(),
+      this.getArtistsRelated$(),
+      this.getAlbum$()
+    ])
     .pipe(
-      map(rocker => this.rocker = rocker)
+      map(
+        (res) => {
+          this._rocker = res[0];
+          this._artistRelated = res[1];
+          this._album = res[2];
+        }
+      ),
+      finalize(() => this.isPageContentReady = true)
     )
     .subscribe(
-      () => console.log('Good'),
-      error => console.error(error)
+      () => console.log('Everything look good'),
+      error => console.error('Something went wrong ' + error)
     );
+  }
+
+  get rockerImage() {
+    return `${this._rocker.images[0].url}`;
+  }
+
+  getRocker$() {
+    return this.artistService
+    .getArtistById(this._rocker.id);
+  }
+
+  getArtistsRelated$() {
+    return this.artistService
+    .getArtistRelatatedToArtistId(this._rocker.id);
+  }
+
+  getAlbum$() {
+    return this.artistService
+    .getAbumByArtistId(this._rocker.id);
   }
 }

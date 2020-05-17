@@ -1,3 +1,5 @@
+@import '../../../../assets/_main';
+
 .navbar {
    // height: 21vh;    
 }
@@ -5,6 +7,5 @@
 .entity-container {
     height: 100vh;
     overflow: auto;
-    padding-top: 15px;
-    padding-bottom: 15px;
+    padding: map-get($spaces, "lg");
 }

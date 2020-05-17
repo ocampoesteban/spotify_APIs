@@ -25,7 +25,7 @@ export class UserService {
    * @returns
    */
   getUserData(): Observable<User> {
-    const SUFIX_URL = '/v1/me/';
+    const SUFIX_URL = 'https://api.spotify.com/v1/me/';
 
     return this.http
       .get(`${SUFIX_URL}`)

@@ -1,8 +1,9 @@
-export class Album {
-    artistName: string;
-    artistHREF: string;
-    artistID: string;
-    albumImages:[];
-    albumName: string;
-    albumReleaseDate : string;
+import { Image } from '../models/image';
+import { IRocker } from './iRocker';
+export interface Album {
+    name: string;
+    image: Image[];
+    release_date: Date;
+    id: string;
+    artist: IRocker[];
 }

@@ -1,6 +1,5 @@
 .vertical-nav {
   box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
-  height: 15vh;
   width: 100%;
 }
 .vertical-nav.displayed {
@@ -33,7 +32,7 @@
   -webkit-transform: rotate(45deg) translate(-8px, -8px);
   transform: rotate(45deg) translate(-8px, -8px);
 }
-@media (min-width: 574px) {
+@media (min-width: 576px) {
   .vertical-nav .collapse-button {
     display: none;
   }
@@ -44,18 +43,13 @@
 .vertical-nav .navbar-body.displayed {
   display: block;
 }
-@media (min-width: 574px) {
+@media (min-width: 576px) {
   .vertical-nav .navbar-body {
     display: block;
   }
 }
-@media (min-width: 574px) {
+@media (min-width: 576px) {
   .vertical-nav {
     height: 100vh;
-  }
-}
-@media (min-width: 1024px) {
-  .vertical-nav {
-    margin-right: 10px;
   }
 }

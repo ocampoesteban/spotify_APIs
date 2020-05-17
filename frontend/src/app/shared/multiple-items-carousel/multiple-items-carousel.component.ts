@@ -22,7 +22,7 @@ export class MultipleItemsCarouselComponent implements OnInit, OnChanges {
     this.multipleItemsCarousel = this.iMultipleItemsCarousel;
   }
 
-  getArtistId(artistId: string) {
+  getArtistById(artistId: string) {
     this.artistId.emit(artistId);
   }
 
