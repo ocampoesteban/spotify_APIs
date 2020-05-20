@@ -20,7 +20,7 @@ export class UserService {
    * @returns
    */
   getUserData(): Observable<User> {
-    const SUFIX_URL: string = 'me/';
+    const SUFIX_URL: string = 'me';
 
     return this.http
       .get(`${this.API_URL}${SUFIX_URL}`)

@@ -10,7 +10,7 @@ import { TokenService } from '../services/token.service';
 import { catchError } from 'rxjs/internal/operators/catchError';
 
 @Injectable()
-export class AuthInterceptor implements HttpInterceptor {
+export class JwtInterceptor implements HttpInterceptor {
 
     constructor(
       public utilsServices: TokenService,
@@ -24,14 +24,7 @@ export class AuthInterceptor implements HttpInterceptor {
         }
       });
 
-      return next.handle(req)
-      .pipe(
-        catchError(this.handleError)
-      );
+      return next.handle(req);
     }
 
-    handleError(error: HttpErrorResponse) {
-      console.log('error data saved');
-      return throwError(error);
-    }
 }

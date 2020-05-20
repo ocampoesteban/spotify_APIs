@@ -4,10 +4,11 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AuthInterceptor } from './core/interceptor/auth.interceptor';
+import { ErrorInterceptor } from './core/interceptor/error.interceptor';
 import { LoginComponent } from './components/authorization/login/login.component';
 import { AuthGuardService } from './core/guards/auth-guard.service';
 import { ErrorService } from './core/services/error.service';
+import { JwtInterceptor } from './core/interceptor/jwt.interceptor';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,12 @@ import { ErrorService } from './core/services/error.service';
     AuthGuardService,
     {
       provide: HTTP_INTERCEPTORS,
-      useClass: AuthInterceptor,
+      useClass: ErrorInterceptor,
+      multi: true
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: JwtInterceptor,
       multi: true
     },
     {
