@@ -8,6 +8,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { MultipleItemsCarouselComponent } from '../../shared/multiple-items-carousel/multiple-items-carousel.component';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { ErrorComponent } from '../error/error.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
     SearchComponent,
     NavbarComponent,
     MultipleItemsCarouselComponent,
+    ErrorComponent,
     EntityContainerComponent
   ],
   imports: [

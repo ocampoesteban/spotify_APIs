@@ -6,16 +6,15 @@ import { LoginService } from '../services/login.service';
 export class AuthGuardService implements CanActivate {
 
     constructor(
-        public auth: LoginService, 
+        public auth: LoginService,
         public router: Router
     ) {}
 
     canActivate(): boolean {
         if (this.auth.isAuthenticated()) {
-            this.router.navigate(['login']);
-            return false;
+            return true;
         }
-        return true;
+        this.router.navigate(['login']);
+        return false;
     }
-
 }
