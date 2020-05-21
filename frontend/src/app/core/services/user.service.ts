@@ -1,10 +1,8 @@
 import { Injectable } from '@angular/core';
-import { throwError } from 'rxjs/internal/observable/throwError';
 import { Observable } from 'rxjs/internal/Observable';
 import { HttpClient } from '@angular/common/http';
 import { User } from '../models/user';
-import { map,catchError } from 'rxjs/internal/operators';
-import { environment } from 'src/environments/environment';
+import { map, retry } from 'rxjs/internal/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -14,10 +12,7 @@ export class UserService {
     private http: HttpClient
   ) { }
 
-  private handleError(error: any) {
-    console.log(error);
-    return throwError(error);
-  }
+  readonly API_URL: string = 'https://api.spotify.com/v1/';
 
   /**
    * Get User list
@@ -25,14 +20,15 @@ export class UserService {
    * @returns
    */
   getUserData(): Observable<User> {
-    const SUFIX_URL = 'https://api.spotify.com/v1/me/';
+    const SUFIX_URL: string = 'me';
 
     return this.http
       .get(`${SUFIX_URL}`)
       .pipe(
         map((data: User) => {
           return new User(data);
-        }), catchError(this.handleError)
+        }),
+        retry(1), // try twice before throwing Error
       );
   }
 }

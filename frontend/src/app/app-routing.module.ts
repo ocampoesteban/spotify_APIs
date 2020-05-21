@@ -11,7 +11,7 @@ const routes: Routes = [
   {
     path: '',
     loadChildren: () => import('./components/entity-container/entityContainer.module').then(m => m.EntityContainerModule),
-    //canActivate: [AuthGuardService] 
+    canActivate: [AuthGuardService]
   },
 ];
 

@@ -35,7 +35,8 @@ export class LoginService {
    TODO: Validation done only to test
   */
   public isAuthenticated(): boolean {
-    const token = this.tokenService.getToken;
-    return typeof token === 'undefined' ;
+    // const token = this.tokenService.getToken;
+    // return typeof token === 'undefined' ;
+    return true;
   }
 }
