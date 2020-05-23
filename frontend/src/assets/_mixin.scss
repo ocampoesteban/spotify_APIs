@@ -5,7 +5,7 @@ $break-lg: 960px;
 $break-xl: 1140px;
 
 @mixin breakpoints($point, $custom) {
-   @if $custom { // custom
+   @if $point == null { // custom
       @media only screen and (min-width: $custom) {
          @content;
       }

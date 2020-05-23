@@ -11,7 +11,7 @@ $paragraph: (   _: 0.25rem,
 
 $spaces: (  _: 1%, 
             sm: 1.5%,
-            md: 3%, 
+            md: 2.5%, 
             lg: 4%, 
             xl: 5%) !default;
 
@@ -21,8 +21,8 @@ $subTitle: (  _: 0.25rem, // mobile
             lg: 1.50rem,
             xl: 2rem) !default;
 
-$title: (   _: 3rem, // mobile
-            sm: 2.5rem, 
+$title: (   _: 2.5rem, // mobile
+            sm: 2rem, 
             md: 1.5rem,
             lg: 0.75rem,
             xl: .5rem) !default;

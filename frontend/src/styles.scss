@@ -1,5 +1,10 @@
 @import './assets/main';
 
+.container-fluid {
+    max-width: 2000px;
+    min-width: 375px;
+}
+
 // Texts
 .title {
     color: white;
@@ -7,9 +12,19 @@
     font-weight: 800;
     letter-spacing: 2px;
     line-height: 1;
+    margin-bottom: 13%;
+    margin-top: -18%;
     text-shadow: 3px 3px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
     
-    @include breakpoints(null, 540px) {
+    &.smaller {
+        margin-top: -28%;
+    }
+
+    @include breakpoints(null, 576px) {
+        font-size: map-get($title, "md");
+        margin-bottom: map-get($spaces, "_");
+        margin-top: map-get($spaces, "_");
+
         &.s-mobile {
             display: none;
         }
@@ -19,6 +34,10 @@
 .sub-title {
     font-size: map-get($title, "sm");
     margin-bottom: 0rem;
+
+    @include breakpoints(null, 576px) {
+        font-size: map-get($title, "md");
+    }
 }
 
 .under-title {

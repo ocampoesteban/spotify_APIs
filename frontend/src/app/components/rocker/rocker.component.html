@@ -4,13 +4,21 @@
     <section id="header" class="d-sm-flex header" >
         <img class="background-img img-fluid" src="{{rockerImage}}" alt="">
         <!-- Displayed only in mobile screen -->
-        <h1 class="title s-mobile">{{_rocker.name}}</h1>
+        <h1 
+            class="title s-mobile" 
+            [ngClass]="{'smaller': smaller }"
+        >
+            {{_rocker.name}}
+        </h1>
         <div class="content">
             <!-- Following 3 lines are displayed in screen bigger than mobile size -->
             <h3 class="sub-title text-uppercase d-none d-sm-block">Artist</h3>
-            <h1 class="title d-none d-sm-block">{{_rocker.name}}</h1>
+            <h1 
+                class="title 
+                d-none d-sm-block"
+            >{{_rocker.name}}</h1>
             <h6 class="under-title hide-mobile d-none d-sm-block">Followers {{_rocker.followers.total}}</h6>
-            <div class="btn-container my-3">
+            <div class="btn-container">
                 <button type="button" class="btn tertiary listen">Listen</button>
                 <button type="button" class="btn tertiary bg-colored follow">Follow</button>
             </div>

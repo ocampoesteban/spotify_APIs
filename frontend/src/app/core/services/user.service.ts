@@ -23,7 +23,7 @@ export class UserService {
     const SUFIX_URL: string = 'me';
 
     return this.http
-      .get(`${SUFIX_URL}`)
+      .get(`${this.API_URL}${SUFIX_URL}`)
       .pipe(
         map((data: User) => {
           return new User(data);

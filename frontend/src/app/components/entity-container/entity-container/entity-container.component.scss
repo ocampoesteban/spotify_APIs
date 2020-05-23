@@ -1,11 +1,11 @@
 @import '../../../../assets/_main';
 
-.navbar {
-   // height: 21vh;    
-}
-
 .entity-container {
     height: 100vh;
     overflow: auto;
-    padding: map-get($spaces, "lg");
+    padding-bottom: 20vh;
+
+    @include breakpoints(null,576px) {
+        padding: map-get($spaces, "md");
+    }
 }

@@ -1,29 +1,52 @@
 @import '../../../assets/main';
 
 .header {
+    text-align: center;
+
+    @include breakpoints(null,576px) {
+        text-align: initial;
+    }
+
     .background-img {
         height: auto;
         width: 100%;
 
-        @include breakpoints(sm,null) {
-            width: 50%;
+        @include breakpoints(null,576px) {
+            width: 31%;
         }
     }
 
     .content {
         display: flex;
         flex-direction: column;
+
+        @include breakpoints(null,576px) {
+            width: 100%;
+            margin: map-get($spaces , 'md');
+            margin-top: 0;
+        }
     }
     
     .btn-container {
         flex-direction: column;
-        margin-top: auto;
+        margin: map-get($spaces , 'md');
 
-        .btn {
-            line-height: 10vw;
-            width: 48.5%;
+        @include breakpoints(null,576px) {
+            margin: 0;
+            margin-top: auto;
         }
 
+        .btn {
+            line-height: 35px;
+            width: 45%;
+
+            @include breakpoints(null,576px) {
+                font-size: .75rem;
+                line-height: 25px;
+                width: 20%;
+            }
+        }
+       
         .listen {
             margin-right: map-get($spaces , 'sm');
         }

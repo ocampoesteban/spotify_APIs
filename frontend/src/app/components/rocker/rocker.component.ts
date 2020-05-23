@@ -21,6 +21,7 @@ export class RockerComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private artistService: ArtistService
   ) { }
+  smaller = false;
   _rocker: IRocker;
   _album: Album[];
   _artistRelated: IRocker[];
@@ -34,6 +35,12 @@ export class RockerComponent implements OnInit {
       id: artistId
     };
     this.loadData();
+  }
+
+  checkTittleSize() {
+    if (this._rocker.name.length > 13) {
+      this.smaller = true;
+    }
   }
 
   loadData() {
@@ -53,7 +60,7 @@ export class RockerComponent implements OnInit {
       finalize(() => this.isPageContentReady = true)
     )
     .subscribe(
-      () => console.log('Everything look good'),
+      () => this.checkTittleSize(),
       error => console.error('Something went wrong ' + error)
     );
   }
